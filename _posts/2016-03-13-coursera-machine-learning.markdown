@@ -25,6 +25,12 @@ title:  "Coursera Machine Learning"
 
 # Model Tuning
 
+## Learning Curve
+
+## Cross Validation
+* By using cross validation, you can choose different models based on F score.
+* By using cross validation, you can try different thresholds by the F score for 2-classification problem.
+
 # Support Vector Machine
 
 # ...
