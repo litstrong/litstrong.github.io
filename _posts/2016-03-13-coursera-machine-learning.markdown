@@ -35,6 +35,11 @@ title:  "Coursera Machine Learning"
   - more training data not help
   - more features
 
+|Overfitting|Underfitting|
+|---|---|---|---|---|
+|   |   |   |   |   |
+|   |   |   |   |   |
+|   |   |   |   |   |
 ----------------------------
 Overfitting | Underfitting |
 ----------------------------
