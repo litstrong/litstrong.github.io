@@ -35,14 +35,11 @@ title:  "Coursera Machine Learning"
   - more training data not help
   - more features
 
-|Overfitting|Underfitting|
-|---|---|---|---|---|
-|   |   |   |   |   |
-|   |   |   |   |   |
-|   |   |   |   |   |
-----------------------------
-Overfitting | Underfitting |
-----------------------------
+| Overfitting | Underfitting |
+|-------------|--------------|
+|             |              |
+|             |              |
+|             |              |
 
 ## Cross Validation
 - By using cross validation, you can choose different models based on F score.
