@@ -23,19 +23,22 @@ title:  "Coursera Machine Learning"
 
 # Neural Network
 
+- Chain rule
+- Dynamic programming
+
 # Model Tuning
 
 ## Learning Curve
 - Over fitting (High variance)
   - low training error v.s. high validation error
   - Add more training data may help
-  - less features
+  - less features may help
 
 - Under fitting (High bias)
   - more training data not help
-  - more features
+  - more features may help
 
-Please have a look at tables below:
+Please have a look at table below:
 
 | Tries              | Overfitting | Underfitting |
 | ------------------ | :---------: | -----------: |
