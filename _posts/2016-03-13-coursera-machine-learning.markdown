@@ -35,13 +35,13 @@ title:  "Coursera Machine Learning"
   - more training data not help
   - more features
 
-                   | Overfitting | Underfitting |
--------------------|-------------|--------------|
-more training data |             |              |
-more features      |             |              |
-less features      |             |              |
-high lambda        |             |              |
-low lambda         |             |              |
+|   Tries            | Overfitting | Underfitting |
+|--------------------|-------------|--------------|
+| more training data |             |              |
+| more features      |             |              |
+| less features      |             |              |
+| high lambda        |             |              |
+| low lambda         |             |              |
 
 ## Cross Validation
 - By using cross validation, you can choose different models based on F score.
