@@ -37,6 +37,13 @@ title:  "Coursera Machine Learning"
 
 Please have a look at tables below:
 
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
+
 | Tries              | Overfitting | Underfitting |
 | ------------------ | ----------- | ------------ |
 | more training data | may work    | not work     |
