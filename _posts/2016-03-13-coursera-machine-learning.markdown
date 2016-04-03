@@ -35,7 +35,7 @@ title:  "Coursera Machine Learning"
   - more training data not help
   - more features
 
-|   Tries            | Overfitting | Underfitting |
+| Tries              | Overfitting | Underfitting |
 |--------------------|-------------|--------------|
 | more training data |             |              |
 | more features      |             |              |
