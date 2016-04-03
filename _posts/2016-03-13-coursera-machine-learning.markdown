@@ -30,9 +30,11 @@ title:  "Coursera Machine Learning"
  * low training error v.s. high validation error
  * Add more training data may help
  * less features
+
 * Under fitting (High bias)
- * more training data not help
- * more features
+ ** more training data not help
+ ** more features
+
 ----------------------------
 Overfitting | Underfitting |
 ----------------------------
