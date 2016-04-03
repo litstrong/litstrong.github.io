@@ -29,6 +29,11 @@ title:  "Coursera Machine Learning"
 # Model Tuning
 
 ## Learning Curve
+- Learning curve is two curves, one is for train error with different size of train data while the other is the cross
+validation error with same set of validation set (it is same with test data set if it is not used to adjust lambda)
+
+- Regularization is helpful to adjust the learning curve, so you can select lambda based on a cross validation set
+
 - Over fitting (High variance)
   - low training error v.s. high validation error
   - Add more training data may help
