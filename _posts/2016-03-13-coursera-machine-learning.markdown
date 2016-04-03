@@ -26,14 +26,14 @@ title:  "Coursera Machine Learning"
 # Model Tuning
 
 ## Learning Curve
-* Over fitting (High variance)
-  + low training error v.s. high validation error
-  + Add more training data may help
-  + less features
+- Over fitting (High variance)
+  - low training error v.s. high validation error
+  - Add more training data may help
+  - less features
 
-* Under fitting (High bias)
- - more training data not help
- - more features
+- Under fitting (High bias)
+  - more training data not help
+  - more features
 
 ----------------------------
 Overfitting | Underfitting |
