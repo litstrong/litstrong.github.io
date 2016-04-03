@@ -38,7 +38,7 @@ title:  "Coursera Machine Learning"
 Please have a look at tables below:
 
 | Tries              | Overfitting | Underfitting |
-|--------------------|-------------|--------------|
+| ------------------ | ----------- | ------------ |
 | more training data | may work    | not work     |
 | more features      | not work    | may work     |
 | less features      | may work    | not work     |
