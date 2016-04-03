@@ -4,22 +4,22 @@ title:  "Coursera Machine Learning"
 ---
 
 # Linear Regression
-* Cost function is a convex function, mean of sum square error.
-* Normal equation v.s. gradient method.
-* When there are many features, normal equation have to solve a inverse of a matrix.
+- Cost function is a convex function, mean of sum square error.
+- Normal equation v.s. gradient method.
+- When there are many features, normal equation have to solve a inverse of a matrix.
 
 # Logistics Regression
-* Linear regression could not get good result for 2-classification problem.
-* It turns classification problem into splitting points with super plane after introducing sigmoid function.
-* It will become a non-convex function if using square error as cost function (that is one of reasons sigmoid function be introduced).
-* Logistics regression could be non-linear classifier if adding more features (like polynomial features), but that can be very expensive to train (that is why neural network is introduced).
-* Logistics regression could also be used to make a multi-classification by using one-vs-all method.
+- Linear regression could not get good result for 2-classification problem.
+- It turns classification problem into splitting points with super plane after introducing sigmoid function.
+- It will become a non-convex function if using square error as cost function (that is one of reasons sigmoid function be introduced).
+- Logistics regression could be non-linear classifier if adding more features (like polynomial features), but that can be very expensive to train (that is why neural network is introduced).
+- Logistics regression could also be used to make a multi-classification by using one-vs-all method.
 
 # Regularization
-* over fitting = high variance, under fitting = high bias.
-* high lambda regularization = under fitting, low lambda = overfitting.
-* Regularization could be used to reduce overfitting.
-* Add many unrelated features will make you overfitting.
+- over fitting = high variance, under fitting = high bias.
+- high lambda regularization = under fitting, low lambda = overfitting.
+- Regularization could be used to reduce overfitting.
+- Add many unrelated features will make you overfitting.
 
 # Neural Network
 
@@ -40,8 +40,8 @@ Overfitting | Underfitting |
 ----------------------------
 
 ## Cross Validation
-* By using cross validation, you can choose different models based on F score.
-* By using cross validation, you can try different thresholds by the F score for 2-classification problem.
+- By using cross validation, you can choose different models based on F score.
+- By using cross validation, you can try different thresholds by the F score for 2-classification problem.
 
 # Support Vector Machine
 
