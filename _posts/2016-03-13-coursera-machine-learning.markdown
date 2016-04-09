@@ -30,18 +30,20 @@ title:  "Coursera Machine Learning"
 
 ## Learning Curve
 - Learning curve is two curves, one is for train error with different size of train data while the other is the cross
-validation error with same set of validation set (it is same with test data set if it is not used to adjust lambda)
+validation error with same set of validation set (it is same with test data set if it is not used to adjust lambda).
 
-- Regularization is helpful to adjust the learning curve, so you can select lambda based on a cross validation set
+- Regularization is helpful to adjust the learning curve, so you can select lambda based on a cross validation set.
 
-- Over fitting (High variance)
-  - low training error v.s. high validation error
-  - Add more training data may help
-  - less features may help
+- Using a very large training set makes it unlikely for model to overfit the training data.
 
-- Under fitting (High bias)
-  - more training data not help
-  - more features may help
+- Over fitting (High variance).
+  - low training error v.s. high validation error.
+  - Add more training data may help.
+  - less features may help.
+
+- Under fitting (High bias).
+  - more training data not help.
+  - more features may help.
 
 Please have a look at table below:
 
@@ -58,5 +60,13 @@ Please have a look at table below:
 - By using cross validation, you can try different thresholds by the F score for 2-classification problem.
 
 # Support Vector Machine
+- Adjust C and sigma.
+ - C is just like 1/lambda.
+  - low C => high lambda => avoid overfitting (overfitting means not optimal largest margin).
+  - high C => low lambda => avoid underfitting (underfitting means line is put not correctly).
+- Get top predictors according to weights if the svm model is linear.
 
-# ...
+# K-Means
+- Optimization cost function.
+ - Easy to debug.
+ - Avoid local minimum value.
