@@ -74,6 +74,18 @@ Please have a look at table below:
  - Draw curve based on error and number of clusters, and then choose `elbow` point.
  - Use a cost function based follow-up optimization.
 
+# PCA
+- Minimize the sum error of the projection distance.
+ - Projection, so it is different with linear regression.
+- Choose K
+ - 99% of variance is retrained.
+ - Use diagonal matrix after SVD.
+- Applying
+ - Compress => good
+ - Speed up => good
+ - Visualization with 2d/3d data => good
+ - Avoid overfitting => bad
+
 # Scale on the large data
 - Batch gradient descent
 - Stochastic gradient descent
