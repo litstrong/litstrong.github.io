@@ -70,3 +70,11 @@ Please have a look at table below:
 - Optimization cost function.
  - Easy to debug.
  - Avoid local minimum value.
+- How to choose number of clusters.
+ - Draw curve based on error and number of clusters, and then choose `elbow` point.
+ - Use a cost function based follow-up optimization.
+
+# Scale on the large data
+- Batch gradient descent
+- Stochastic gradient descent
+- Mini-batch gradient descent
