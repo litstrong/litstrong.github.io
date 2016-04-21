@@ -73,20 +73,31 @@ Please have a look at table below:
 - How to choose number of clusters.
  - Draw curve based on error and number of clusters, and then choose `elbow` point.
  - Use a cost function based follow-up optimization.
+- Apply on image compression.
+ - Compress a 24bit images to a 16 color's image.
+ - 16 clustering on the pixels in the image.
 
 # PCA
 - Minimize the sum error of the projection distance.
  - Projection, so it is different with linear regression.
-- Choose K
+- Choose K.
  - 99% of variance is retrained.
  - Use diagonal matrix after SVD.
-- Applying
- - Compress => good
- - Speed up => good
- - Visualization with 2d/3d data => good
- - Avoid overfitting => bad
+- Applying.
+ - Compress => good.
+ - Speed up => good.
+ - Visualization with 2d/3d data => good.
+ - Avoid overfitting => bad.
 
 # Scale on the large data
-- Batch gradient descent
-- Stochastic gradient descent
-- Mini-batch gradient descent
+- Batch gradient descent.
+- Stochastic gradient descent.
+- Mini-batch gradient descent.
+
+# Anomaly Detection
+- small number of -1(anomaly), large number of +1(non-anomaly).
+- test data are not large enough to show everything possible.
+- application
+ - fraud detection
+ - manufacturing
+ - monitoring machines in data center
