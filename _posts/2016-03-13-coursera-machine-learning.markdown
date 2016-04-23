@@ -101,3 +101,17 @@ Please have a look at table below:
  - fraud detection
  - manufacturing
  - monitoring machines in data center
+- have new features to make feature like a Gaussian
+ - log(x + c)
+ - x^(1/c)
+- v.s. Multivariate Gaussian
+ - Original Model, need x1/x2 to capture relation between two features while Multivariate doesn't need
+ - Multivariate is expensive to compute
+
+# Recommenter Systems
+- Content based system (defined features on movies, like romantic and action)
+- Collaborative filtering (user based)
+ - Need to provide what user like (like how many he likes action and romantic)
+ - Iteration, theta -> x -> theta -> x ...
+ - Minimize (x,theta) at the same time
+  - Define a J(x, theta)
