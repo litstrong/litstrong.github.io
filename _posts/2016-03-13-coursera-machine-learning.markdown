@@ -61,33 +61,33 @@ Please have a look at table below:
 
 # Support Vector Machine
 - Adjust C and sigma.
- - C is just like 1/lambda.
-  - low C => high lambda => avoid overfitting (overfitting means not optimal largest margin).
-  - high C => low lambda => avoid underfitting (underfitting means line is put not correctly).
+  - C is just like 1/lambda.
+    - low C => high lambda => avoid overfitting (overfitting means not optimal largest margin).
+    - high C => low lambda => avoid underfitting (underfitting means line is put not correctly).
 - Get top predictors according to weights if the svm model is linear.
 
 # K-Means
 - Optimization cost function.
- - Easy to debug.
- - Avoid local minimum value.
+  - Easy to debug.
+  - Avoid local minimum value.
 - How to choose number of clusters.
- - Draw curve based on error and number of clusters, and then choose `elbow` point.
- - Use a cost function based follow-up optimization.
+  - Draw curve based on error and number of clusters, and then choose `elbow` point.
+  - Use a cost function based follow-up optimization.
 - Apply on image compression.
- - Compress a 24bit images to a 16 color's image.
- - 16 clustering on the pixels in the image.
+  - Compress a 24bit images to a 16 color's image.
+  - 16 clustering on the pixels in the image.
 
 # PCA
 - Minimize the sum error of the projection distance.
- - Projection, so it is different with linear regression.
+  - Projection, so it is different with linear regression.
 - Choose K.
- - 99% of variance is retrained.
- - Use diagonal matrix after SVD.
+  - 99% of variance is retrained.
+  - Use diagonal matrix after SVD.
 - Applying.
- - Compress => good.
- - Speed up => good.
- - Visualization with 2d/3d data => good.
- - Avoid overfitting => bad.
+  - Compress => good.
+  - Speed up => good.
+  - Visualization with 2d/3d data => good.
+  - Avoid overfitting => bad.
 
 # Scale on the large data
 - Batch gradient descent.
@@ -98,25 +98,25 @@ Please have a look at table below:
 - small number of -1(anomaly), large number of +1(non-anomaly).
 - test data are not large enough to show everything possible.
 - application.
- - fraud detection.
- - manufacturing.
- - monitoring machines in data center.
+  - fraud detection.
+  - manufacturing.
+  - monitoring machines in data center.
 - have new features to make feature like a Gaussian.
- - log(x + c).
- - x^(1/c).
+  - log(x + c).
+  - x^(1/c).
 - v.s. Multivariate Gaussian.
- - Original Model, need x1/x2 to capture relation between two features while Multivariate doesn't need.
- - Multivariate is expensive to compute.
+  - Original Model, need x1/x2 to capture relation between two features while Multivariate doesn't need.
+  - Multivariate is expensive to compute.
 
 # Recommenter Systems
 - Content based system (defined features on movies, like romantic and action).
 - Collaborative filtering (user based).
- - Need to provide what user like (like how many he likes action and romantic).
- - Iteration, theta -> x -> theta -> x ...
- - Minimize (x,theta) at the same time.
-  - Define a J(x, theta).
- - This is also a "Low Rank Matrix Factorization".
- - Mean Normalization.
-  - For users who are not giving any scores on the movie, average scores will be given. Otherwise, the scores of these users will turn out to be zeros.
+  - Need to provide what user like (like how many he likes action and romantic).
+  - Iteration, theta -> x -> theta -> x ...
+  - Minimize (x,theta) at the same time.
+    - Define a J(x, theta).
+  - This is also a "Low Rank Matrix Factorization".
+  - Mean Normalization.
+    - For users who are not giving any scores on the movie, average scores will be given. Otherwise, the scores of these users will turn out to be zeros.
 - No bias unit.
- - X*Theta'=C, after treating dimension of X and Theta to 1*1, will get the intuition variables are large enough to get the C.
+  - X*Theta'=C, after treating dimension of X and Theta to 1*1, will get the intuition variables are large enough to get the C.
