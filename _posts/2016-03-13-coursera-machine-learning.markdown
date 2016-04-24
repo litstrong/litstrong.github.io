@@ -97,21 +97,26 @@ Please have a look at table below:
 # Anomaly Detection
 - small number of -1(anomaly), large number of +1(non-anomaly).
 - test data are not large enough to show everything possible.
-- application
- - fraud detection
- - manufacturing
- - monitoring machines in data center
-- have new features to make feature like a Gaussian
- - log(x + c)
- - x^(1/c)
-- v.s. Multivariate Gaussian
- - Original Model, need x1/x2 to capture relation between two features while Multivariate doesn't need
- - Multivariate is expensive to compute
+- application.
+ - fraud detection.
+ - manufacturing.
+ - monitoring machines in data center.
+- have new features to make feature like a Gaussian.
+ - log(x + c).
+ - x^(1/c).
+- v.s. Multivariate Gaussian.
+ - Original Model, need x1/x2 to capture relation between two features while Multivariate doesn't need.
+ - Multivariate is expensive to compute.
 
 # Recommenter Systems
-- Content based system (defined features on movies, like romantic and action)
-- Collaborative filtering (user based)
- - Need to provide what user like (like how many he likes action and romantic)
+- Content based system (defined features on movies, like romantic and action).
+- Collaborative filtering (user based).
+ - Need to provide what user like (like how many he likes action and romantic).
  - Iteration, theta -> x -> theta -> x ...
- - Minimize (x,theta) at the same time
-  - Define a J(x, theta)
+ - Minimize (x,theta) at the same time.
+  - Define a J(x, theta).
+ - This is also a "Low Rank Matrix Factorization".
+ - Mean Normalization.
+  - For users who are not giving any scores on the movie, average scores will be given. Otherwise, the scores of these users will turn out to be zeros.
+- No bias unit.
+ - X*Theta'=C, after treating dimension of X and Theta to 1*1, will get the intuition variables are large enough to get the C.
