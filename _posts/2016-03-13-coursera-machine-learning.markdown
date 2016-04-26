@@ -126,5 +126,8 @@ Please have a look at table below:
 
 # Photo OCR (Photo Optical Character Recoginition)
 - Text detection
+  - Sliding windows and classify
+  - Expansion operator
 - Character segmentation
+  - 1D character segmentation could still use supervised learning to train and classfiy
 - Character recognition
