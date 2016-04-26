@@ -93,6 +93,9 @@ Please have a look at table below:
 - Batch gradient descent.
 - Stochastic gradient descent.
 - Mini-batch gradient descent.
+- online learning setting <-> SGD.
+  - Example: learning the predicted click-through rate (CTR).
+- Map/Reduce could be applied in forward / backprop for nerual network.
 
 # Anomaly Detection
 - small number of -1(anomaly), large number of +1(non-anomaly).
@@ -119,4 +122,4 @@ Please have a look at table below:
   - Mean Normalization.
     - For users who are not giving any scores on the movie, average scores will be given. Otherwise, the scores of these users will turn out to be zeros.
 - No bias unit.
-  - X*Theta'=C, after treating dimension of X and Theta to 1*1, will get the intuition variables are large enough to get the C.
+  -
