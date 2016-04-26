@@ -125,9 +125,30 @@ Please have a look at table below:
   - bias unit is already included in the feature, that means it will automatically learn x0 = 1.
 
 # Photo OCR (Photo Optical Character Recoginition)
-- Text detection
-  - Sliding windows and classify
-  - Expansion operator
-- Character segmentation
-  - 1D character segmentation could still use supervised learning to train and classfiy
-- Character recognition
+- Text detection.
+  - Sliding windows and classify.
+  - Expansion operator.
+- Character segmentation.
+  - 1D character segmentation could still use supervised learning to train and classify.
+- Character recognition.
+
+- Artificial data synthesis.
+  - Paste font on the random background.
+    - The data got should look similar with the training data.
+  - Amplify - Synthesizing data by introducing distortions.
+  - Speech recognition.
+    - Put clean audio in noisy background.
+  - Adding pure random / meaningless noise to data would not be helpful.
+- Note: before trying to `getting more data` before you get a low bias.
+
+- What to work next ?
+  - Itself is a time based problem.
+  - Use `Ceiling Analysis`.
+    - Suppose you get ground truth data for each step in the pipeline.
+
+# Summary : Main topics
+- Supervised Learning
+- Unsupervised Learning
+- Special application
+  - Recommender systems
+  - Large scale machine learning
