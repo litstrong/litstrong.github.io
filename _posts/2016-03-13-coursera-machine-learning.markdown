@@ -122,4 +122,9 @@ Please have a look at table below:
   - Mean Normalization.
     - For users who are not giving any scores on the movie, average scores will be given. Otherwise, the scores of these users will turn out to be zeros.
 - No bias unit.
-  -
+  - bias unit is already included in the feature, that means it will automatically learn x0 = 1.
+
+# Photo OCR (Photo Optical Character Recoginition)
+- Text detection
+- Character segmentation
+- Character recognition
