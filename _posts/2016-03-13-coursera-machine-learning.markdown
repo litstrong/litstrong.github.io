@@ -111,7 +111,7 @@ Please have a look at table below:
   - Original Model, need x1/x2 to capture relation between two features while Multivariate doesn't need.
   - Multivariate is expensive to compute.
 
-# Recommenter Systems
+# Recommender Systems
 - Content based system (defined features on movies, like romantic and action).
 - Collaborative filtering (user based).
   - Need to provide what user like (like how many he likes action and romantic).
