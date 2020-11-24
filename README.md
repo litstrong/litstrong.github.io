@@ -1,2 +1,0 @@
-# litstrong.github.io
-
