@@ -1,4 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-11-23T21:20:08-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2020/11/22/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2020-11-22T12:19:59-08:00</published><updated>2020-11-22T12:19:59-08:00</updated><id>http://localhost:4000/jekyll/update/2020/11/22/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/11/22/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-01T21:28:06-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">最大化两向量的内积</title><link href="http://localhost:4000/algorithm/2020/12/01/maximize-inner-product.html" rel="alternate" type="text/html" title="最大化两向量的内积" /><published>2020-12-01T21:28:00-08:00</published><updated>2020-12-01T21:28:00-08:00</updated><id>http://localhost:4000/algorithm/2020/12/01/maximize-inner-product</id><content type="html" xml:base="http://localhost:4000/algorithm/2020/12/01/maximize-inner-product.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#问题&quot; id=&quot;markdown-toc-问题&quot;&gt;问题&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#简化分析&quot; id=&quot;markdown-toc-简化分析&quot;&gt;简化分析&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#最大化内积&quot; id=&quot;markdown-toc-最大化内积&quot;&gt;最大化内积&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#最小化内积&quot; id=&quot;markdown-toc-最小化内积&quot;&gt;最小化内积&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&quot;问题&quot;&gt;问题&lt;/h1&gt;
+
+&lt;p&gt;已知长度为 \(N\) 的两个向量
+\(\vec{X} = \left (x_1, x_2, x_3, ..., x_i, ..., x_n \right )\),
+\(\vec{Y} = \left (y_1, y_2, y_3, ..., y_i, ..., y_n \right )\)
+并且 \(x_i &amp;gt; 0, y_i &amp;gt; 0\), \(\vec{X}\) 和 \(\vec{Y}\) 向量内的数可以随机排列，
+求 \(\vec{X}\) 向量与 \(\vec{Y}\) 向量点积的最大值。&lt;/p&gt;
+
+&lt;h1 id=&quot;简化分析&quot;&gt;简化分析&lt;/h1&gt;
+
+&lt;p&gt;先考虑简化情况下的解法，假设我们有两个长度为 2 的向量
+\(\vec{A} = \{x_1, x_2\}\),
+\(\vec{B} = \{y_1, y_2\}\), 并且
+\(x_1 &amp;lt; x_2, y_1 &amp;lt; y_2\). 这种情况下的解答比较简单，可以通过代数或者数型结合的办法证明
+\(x_2 * y_2\) 是最大的内积，\(x_1 * y_1\) 是最小的内积。&lt;/p&gt;
+
+&lt;p&gt;将 \(\vec{X}\) 和 \(\vec{Y}\) 向量内的数排好序&lt;/p&gt;
+
+\[x_1 &amp;lt; x_2 &amp;lt; ... &amp;lt; x_i &amp;lt; ... &amp;lt; x_n,\]
+
+\[y_1 &amp;lt; y_2 &amp;lt; ... &amp;lt; y_i &amp;lt; ... &amp;lt; y_n.\]
+
+&lt;p&gt;那么，最大的内积为&lt;/p&gt;
+
+\[\sum_{i=1}^{n} x_i * y_i,\]
+
+&lt;p&gt;最小的内积为&lt;/p&gt;
+
+\[\sum_{i=1}^{n} x_i * y_{n+1-i},\]
+
+&lt;p&gt;下面详细证明。&lt;/p&gt;
+
+&lt;h1 id=&quot;最大化内积&quot;&gt;最大化内积&lt;/h1&gt;
+
+&lt;p&gt;反证法。假设 \(\sum_{i=1}^{n} x_i * y_i\) 不是最大的内积，\(S\) 才是最大的，
+那在这个内积 \(S\) 的 \(N\) 项中一定存在
+\(x_a * y_d\) 和 \(x_b * y_c\) 使得 \(a &amp;lt; b\) 且 \(c &amp;lt; d\)。&lt;/p&gt;
+
+&lt;p&gt;根据简化分析的结论，我们可以得到&lt;/p&gt;
+
+\[T = S - (x_a * y_d + x_b * y_c) + (x_a * y_c + x_b * y_d) &amp;gt; S,\]
+
+&lt;p&gt;可以将 \(S\) 可视化如下图所示&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/max-inner-product.png&quot; alt=&quot;max-inner-product&quot; class=&quot;center&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;\(T &amp;gt; S\) 与 \(S\) 是最大的内积矛盾，证毕。&lt;/p&gt;
+
+&lt;h1 id=&quot;最小化内积&quot;&gt;最小化内积&lt;/h1&gt;
+
+&lt;p&gt;类似反证法。我们可以从 \(x_n\) 枚举到 \(x_1\), 找到对应的 \(y_j\) 相乘。
+比如对于 \(x_n\), 只有当 \(x_n\) 和 \(y_1\) 相乘才可以使得最后的内积最小。
+否则最后的内积中会有 \(x_n * y_b + x_a * y_1\)，然后我们可以再次借助简化分析中的结论，
+将这两项换为 \(x_n * y_1 + x_a * y_b\) 来使得最后的内积变小。
+对于 \(i &amp;lt; n\) 的 \(x_i\), 以此类推，我们便可以得到
+\(\sum_{i=1}^{n} x_i * y_{n+1-i}\) 是最小的内积。&lt;/p&gt;</content><author><name></name></author><category term="algorithm" /><summary type="html"></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2020/11/22/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2020-11-22T12:19:59-08:00</published><updated>2020-11-22T12:19:59-08:00</updated><id>http://localhost:4000/jekyll/update/2020/11/22/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/11/22/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
 
