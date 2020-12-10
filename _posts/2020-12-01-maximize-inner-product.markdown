@@ -4,11 +4,6 @@ title:  "最大化两向量的内积"
 date:   2020-12-01 21:28:00 -0800
 categories: algorithm
 ---
-* TOC
-{:toc}
-
-# 问题
-
 已知长度为 $$ N $$ 的两个向量
 $$ \vec{X} = \left (x_1, x_2, x_3, ..., x_i, ..., x_n \right ) $$,
 $$ \vec{Y} = \left (y_1, y_2, y_3, ..., y_i, ..., y_n \right ) $$

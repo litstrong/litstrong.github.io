@@ -7,15 +7,15 @@
 <meta name="generator" content="Jekyll v3.9.0" />
 <meta property="og:title" content="最大化两向量的内积" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<meta name="description" content="已知长度为 \(N\) 的两个向量 \(\vec{X} = \left (x_1, x_2, x_3, ..., x_i, ..., x_n \right )\), \(\vec{Y} = \left (y_1, y_2, y_3, ..., y_i, ..., y_n \right )\) 并且 \(x_i &gt; 0, y_i &gt; 0\), \(\vec{X}\) 和 \(\vec{Y}\) 向量内的数可以随机排列， 求 \(\vec{X}\) 向量与 \(\vec{Y}\) 向量点积的最大值。" />
+<meta property="og:description" content="已知长度为 \(N\) 的两个向量 \(\vec{X} = \left (x_1, x_2, x_3, ..., x_i, ..., x_n \right )\), \(\vec{Y} = \left (y_1, y_2, y_3, ..., y_i, ..., y_n \right )\) 并且 \(x_i &gt; 0, y_i &gt; 0\), \(\vec{X}\) 和 \(\vec{Y}\) 向量内的数可以随机排列， 求 \(\vec{X}\) 向量与 \(\vec{Y}\) 向量点积的最大值。" />
 <link rel="canonical" href="http://localhost:4000/algorithm/2020/12/01/maximize-inner-product.html" />
 <meta property="og:url" content="http://localhost:4000/algorithm/2020/12/01/maximize-inner-product.html" />
 <meta property="og:site_name" content="Your awesome title" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-12-01T21:28:00-08:00" />
 <script type="application/ld+json">
-{"datePublished":"2020-12-01T21:28:00-08:00","dateModified":"2020-12-01T21:28:00-08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/algorithm/2020/12/01/maximize-inner-product.html"},"url":"http://localhost:4000/algorithm/2020/12/01/maximize-inner-product.html","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","@type":"BlogPosting","headline":"最大化两向量的内积","@context":"https://schema.org"}</script>
+{"datePublished":"2020-12-01T21:28:00-08:00","dateModified":"2020-12-01T21:28:00-08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/algorithm/2020/12/01/maximize-inner-product.html"},"url":"http://localhost:4000/algorithm/2020/12/01/maximize-inner-product.html","description":"已知长度为 \\(N\\) 的两个向量 \\(\\vec{X} = \\left (x_1, x_2, x_3, ..., x_i, ..., x_n \\right )\\), \\(\\vec{Y} = \\left (y_1, y_2, y_3, ..., y_i, ..., y_n \\right )\\) 并且 \\(x_i &gt; 0, y_i &gt; 0\\), \\(\\vec{X}\\) 和 \\(\\vec{Y}\\) 向量内的数可以随机排列， 求 \\(\\vec{X}\\) 向量与 \\(\\vec{Y}\\) 向量点积的最大值。","@type":"BlogPosting","headline":"最大化两向量的内积","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /><!-- Mathjax Support -->
   <script type="text/javascript" async
@@ -49,16 +49,7 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <ul id="markdown-toc">
-  <li><a href="#问题" id="markdown-toc-问题">问题</a></li>
-  <li><a href="#简化分析" id="markdown-toc-简化分析">简化分析</a></li>
-  <li><a href="#最大化内积" id="markdown-toc-最大化内积">最大化内积</a></li>
-  <li><a href="#最小化内积" id="markdown-toc-最小化内积">最小化内积</a></li>
-</ul>
-
-<h1 id="问题">问题</h1>
-
-<p>已知长度为 \(N\) 的两个向量
+    <p>已知长度为 \(N\) 的两个向量
 \(\vec{X} = \left (x_1, x_2, x_3, ..., x_i, ..., x_n \right )\),
 \(\vec{Y} = \left (y_1, y_2, y_3, ..., y_i, ..., y_n \right )\)
 并且 \(x_i &gt; 0, y_i &gt; 0\), \(\vec{X}\) 和 \(\vec{Y}\) 向量内的数可以随机排列，

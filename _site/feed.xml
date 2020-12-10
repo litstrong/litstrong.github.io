@@ -1,13 +1,116 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-01T21:28:06-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">最大化两向量的内积</title><link href="http://localhost:4000/algorithm/2020/12/01/maximize-inner-product.html" rel="alternate" type="text/html" title="最大化两向量的内积" /><published>2020-12-01T21:28:00-08:00</published><updated>2020-12-01T21:28:00-08:00</updated><id>http://localhost:4000/algorithm/2020/12/01/maximize-inner-product</id><content type="html" xml:base="http://localhost:4000/algorithm/2020/12/01/maximize-inner-product.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#问题&quot; id=&quot;markdown-toc-问题&quot;&gt;问题&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#简化分析&quot; id=&quot;markdown-toc-简化分析&quot;&gt;简化分析&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#最大化内积&quot; id=&quot;markdown-toc-最大化内积&quot;&gt;最大化内积&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#最小化内积&quot; id=&quot;markdown-toc-最小化内积&quot;&gt;最小化内积&lt;/a&gt;&lt;/li&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-12-10T00:04:44-08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">AUC 的具体含义</title><link href="http://localhost:4000/algorithm/2020/12/10/auc.html" rel="alternate" type="text/html" title="AUC 的具体含义" /><published>2020-12-10T00:04:00-08:00</published><updated>2020-12-10T00:04:00-08:00</updated><id>http://localhost:4000/algorithm/2020/12/10/auc</id><content type="html" xml:base="http://localhost:4000/algorithm/2020/12/10/auc.html">&lt;p&gt;AUC 的定义是 ROC 曲线下的面积，用来衡量二分类模型的排序能力，它所表达的具体含义是随机获取一个
+正样本和一个负样本，正样本的预测值大于负样本的预测值的概率。&lt;/p&gt;
+
+&lt;h1 id=&quot;定义&quot;&gt;定义&lt;/h1&gt;
+
+&lt;p&gt;给定 \(N\) 个 \(\left ( x_i, y_i \right )\), 其中 \(y_i \in \{0, 1\}\)，
+如果我们用一个模型去预测每个 \(x_i\)，即 \(\{x_i, \hat{y_i}\}\)。那么对于
+\(\{y_i, \hat{y_i}\}\)，我们可以计算出一些指标来衡量这个模型的质量，其中一个重要的
+指标便是 &lt;a href=&quot;https://en.wikipedia.org/wiki/Receiver_operating_characteristic#Area_under_the_curve&quot;&gt;AUC&lt;/a&gt;，它的值等于 ROC 曲线下的面积。&lt;/p&gt;
+
+&lt;p&gt;当给定一个 \(t\)，我们可以根据 \(\hat{y}\) 是否大于 \(t\) 来预测正负样例，
+从而计算得到 \(\left (FPR(t), TPR(t) \right )\) 这样一个点。接着通过枚举 \(t\)，
+便绘制出 ROC 曲线。换句话说， ROC 曲线的横坐标是&lt;/p&gt;
+
+\[FPR(t) = \frac{FP}{(FP + TN)},\]
+
+&lt;p&gt;纵坐标是&lt;/p&gt;
+
+\[TPR(t) = \frac{TP}{(TP + FN)}.\]
+
+&lt;p&gt;值得注意的是，纵坐标也就是 Recall 的定义。&lt;/p&gt;
+
+&lt;p&gt;AUC 具备以下&lt;a href=&quot;https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc&quot;&gt;特性&lt;/a&gt;：&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;尺度不变性： AUC 会受预测的相对大小影响，而不会收到预测的绝对值大小影响；&lt;/li&gt;
+  &lt;li&gt;分类 threshold 不变形： AUC 不是定义在某个预测 threshold 上的指标。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h1 id=&quot;问题&quot;&gt;问题&lt;/h1&gt;
+&lt;p&gt;以及以下局限性：&lt;/p&gt;
 
-&lt;p&gt;已知长度为 \(N\) 的两个向量
+&lt;ul&gt;
+  &lt;li&gt;由于尺度不变性，无法知道绝对准度，需要通过其他指标来获取；&lt;/li&gt;
+  &lt;li&gt;在某些场景中需要指定 threshold, 如 spam 检测一般尽量降低 FP，即使会增加一定的 FN；&lt;/li&gt;
+  &lt;li&gt;AUC 只对二分类问题有效，所以对于回归问题（label 是浮点型），我们一般会设定 \(t\)，通过
+\(y\) 是否大于 \(t\) 将样例划分成正负样例，从而转换成二分类问题。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;根据 AUC 以上的定义，它来衡量排序状况的性质并不显然，下面给出证明以及对应的验证。&lt;/p&gt;
+
+&lt;h1 id=&quot;证明&quot;&gt;证明&lt;/h1&gt;
+
+&lt;p&gt;首先定义以下两个随机变量&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;\(x_+\) 表示当 \(y\) 为 \(1\) 时，对应的 \(\hat{y}\)&lt;/li&gt;
+  &lt;li&gt;\(x_-\) 表示当 \(y\) 为 \(0\) 时，对应的 \(\hat{y}\)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;将 \(x_+\) 以及 \(x_-\) 的概率密度函数分别定义为 \(f_+(x)\) 与 \(f_-(x)\)，则有&lt;/p&gt;
+
+\[f_+(x) = P \left( \hat{y} \vert y=1 \right),\]
+
+\[f_-(x) = P \left( \hat{y} \vert y=0 \right),\]
+
+&lt;p&gt;那么，当给定一个 \(t\) 之后&lt;/p&gt;
+
+\[FPR(t) = \int_{t}^{+\infty}f_-(x)dx = 1 - F_-(x),\]
+
+\[TPR(t) = \int_{t}^{+\infty}f_+(x)dx = 1 - F_+(x).\]
+
+&lt;p&gt;根据以上，我们可以得到&lt;/p&gt;
+
+\[\begin{align}
+AUC &amp;amp;= \int_{0}^{1}TPR(t) * d(FPR(t))\\
+    &amp;amp;= \int_{-\infty}^{+\infty}(1 - F_+(t)) * f_-(t)dt\\
+    &amp;amp;= P(x_+ &amp;gt; x_-).\\
+\end{align}\]
+
+&lt;p&gt;任选一个正样例和一个负样例，正样例的预测值大于负样例的预测值的概率，便是该条件概率
+\(P(x_+ &amp;gt; x_-)\)，严谨的形式化推导见&lt;a href=&quot;https://www.alexejgossmann.com/auc/&quot;&gt;这里&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;以上是普适情况的公式，而离散形式下，一种计算方式是&lt;/p&gt;
+
+\[AUC = \frac {\sum_{i \in \{y_i=1\}} \sum_{j \in \{y_j=0\}} I(i, j)} {|\{y_i=1\}| * |\{y_i=0\}|},\]
+
+&lt;p&gt;其中&lt;/p&gt;
+
+\[I(i, j) = \left\{ \begin{array}{ll}
+   1.0 &amp;amp; \quad \hat{y_i} &amp;gt; \hat{y_j} \\
+   0.5 &amp;amp; \quad \hat{y_i} = \hat{y_j} \\
+   0.0 &amp;amp; \quad \hat{y_i} &amp;lt; \hat{y_j} \\
+\end{array} \right.\]
+
+&lt;h1 id=&quot;验证&quot;&gt;验证&lt;/h1&gt;
+
+&lt;p&gt;以下手动随机了一个样例测试离散形式的 AUC 计算与 sklearn 库调用的结果一致。&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;numpy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;as&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sklearn&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;metrics&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;vh&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;0.1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.7&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;auc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;nm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;j&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;range&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;len&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)):&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;nm&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;auc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;1.0&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;elif&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;j&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;auc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;mf&quot;&gt;0.5&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;auc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nm&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 0.85
+&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vy&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;h&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;np&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vh&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;fpr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tpr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;thresholds&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;metrics&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;roc_curve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;y&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;h&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pos_label&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;metrics&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fpr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tpr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# 0.85&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name></name></author><category term="algorithm" /><summary type="html">AUC 的定义是 ROC 曲线下的面积，用来衡量二分类模型的排序能力，它所表达的具体含义是随机获取一个 正样本和一个负样本，正样本的预测值大于负样本的预测值的概率。</summary></entry><entry><title type="html">最大化两向量的内积</title><link href="http://localhost:4000/algorithm/2020/12/01/maximize-inner-product.html" rel="alternate" type="text/html" title="最大化两向量的内积" /><published>2020-12-01T21:28:00-08:00</published><updated>2020-12-01T21:28:00-08:00</updated><id>http://localhost:4000/algorithm/2020/12/01/maximize-inner-product</id><content type="html" xml:base="http://localhost:4000/algorithm/2020/12/01/maximize-inner-product.html">&lt;p&gt;已知长度为 \(N\) 的两个向量
 \(\vec{X} = \left (x_1, x_2, x_3, ..., x_i, ..., x_n \right )\),
 \(\vec{Y} = \left (y_1, y_2, y_3, ..., y_i, ..., y_n \right )\)
 并且 \(x_i &amp;gt; 0, y_i &amp;gt; 0\), \(\vec{X}\) 和 \(\vec{Y}\) 向量内的数可以随机排列，
@@ -60,7 +163,7 @@
 否则最后的内积中会有 \(x_n * y_b + x_a * y_1\)，然后我们可以再次借助简化分析中的结论，
 将这两项换为 \(x_n * y_1 + x_a * y_b\) 来使得最后的内积变小。
 对于 \(i &amp;lt; n\) 的 \(x_i\), 以此类推，我们便可以得到
-\(\sum_{i=1}^{n} x_i * y_{n+1-i}\) 是最小的内积。&lt;/p&gt;</content><author><name></name></author><category term="algorithm" /><summary type="html"></summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2020/11/22/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2020-11-22T12:19:59-08:00</published><updated>2020-11-22T12:19:59-08:00</updated><id>http://localhost:4000/jekyll/update/2020/11/22/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/11/22/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+\(\sum_{i=1}^{n} x_i * y_{n+1-i}\) 是最小的内积。&lt;/p&gt;</content><author><name></name></author><category term="algorithm" /><summary type="html">已知长度为 \(N\) 的两个向量 \(\vec{X} = \left (x_1, x_2, x_3, ..., x_i, ..., x_n \right )\), \(\vec{Y} = \left (y_1, y_2, y_3, ..., y_i, ..., y_n \right )\) 并且 \(x_i &amp;gt; 0, y_i &amp;gt; 0\), \(\vec{X}\) 和 \(\vec{Y}\) 向量内的数可以随机排列， 求 \(\vec{X}\) 向量与 \(\vec{Y}\) 向量点积的最大值。</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2020/11/22/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2020-11-22T12:19:59-08:00</published><updated>2020-11-22T12:19:59-08:00</updated><id>http://localhost:4000/jekyll/update/2020/11/22/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/11/22/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
 
@@ -76,4 +179,15 @@
 &lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Covariance shift&lt;/li&gt;
+  &lt;li&gt;Crawl&lt;/li&gt;
+  &lt;li&gt;Data partition&lt;/li&gt;
+  &lt;li&gt;pCTR models&lt;/li&gt;
+  &lt;li&gt;MLE and MAP&lt;/li&gt;
+  &lt;li&gt;Loss&lt;/li&gt;
+  &lt;li&gt;Logistic regression is one GLM with a binomial distributed response variable. We will
+look at Poisson regression today&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>
