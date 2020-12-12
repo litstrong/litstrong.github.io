@@ -29,7 +29,7 @@ $$ TPR(t) = \frac{TP}{(TP + FN)}. $$
 AUC 具备以下[特性][auc-property-link]：
 
 - 尺度不变性： AUC 会受预测的相对大小影响，而不会收到预测的绝对值大小影响；
-- 分类 threshold 不变形： AUC 不是定义在某个预测 threshold 上的指标。
+- 分类 threshold 不变性： AUC 不是定义在某个预测 threshold 上的指标。
 
 以及以下局限性：
 
