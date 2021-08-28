@@ -5,7 +5,7 @@ date:   2021-08-16 00:15:00 -0800
 categories: essay
 ---
 
-{% include embed-audio.html src="/assets/audio/Electro-house-background-music-116-bpm.mp3" %}
+{% include embed-audio.html src="/assets/audio/Nuvole_Bianche_Ludovico_Einaudi_2004.mp3" %}
 
 # 为什么谈自省
 不知不觉，2021 已经过半。向过去看，或许因为生活状态没有太大的变化，总觉得时间过的非常的快；
