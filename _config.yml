@@ -24,7 +24,16 @@ description: >- # this means to ignore newlines until "baseurl:"
   I like to write down something interesting in my life for fun, and hope they
   can become a good memory in the future.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+
+# The base hostname & protocol for your site, e.g. http://example.com
+#
+# url can be used to build the link for the resources like image, and then used
+# as input for 3rd party service, thus we need this to make resources accessable
+# by the 3rd party service. Not sure if this can create any side effect though.
+#
+# Example for test purpose: "http://127.0.0.1:4000"
+url: "litstrong.github.io"
+
 twitter_username: litstrong
 github_username:  litstrong
 
