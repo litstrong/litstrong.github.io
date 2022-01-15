@@ -21,8 +21,7 @@
 title: Qiang 的博客
 email: litstrong@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  I like to write down something interesting in my life for fun, and hope they
-  can become a good memory in the future.
+  让你陷入困境的往往不是你不了解的，而是自以为太了解的。 —— Mark Twain
 baseurl: "" # the subpath of your site, e.g. /blog
 
 # The base hostname & protocol for your site, e.g. http://example.com
@@ -47,6 +46,8 @@ plugins:
   - jekyll-feed
 
 # Make future blogs visible
+#
+# TODO: set to true for DEV mode, and false for PROD mode.
 future: false
 
 # Exclude from processing.
