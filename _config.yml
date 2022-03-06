@@ -33,6 +33,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 # Example for test purpose: "http://127.0.0.1:4000"
 url: "litstrong.github.io"
 
+# TODO: replace with tiktok, wechat, instagram
 twitter_username: litstrong
 github_username:  litstrong
 
